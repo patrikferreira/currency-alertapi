@@ -50,7 +50,14 @@ const showAlerts: HTMLDivElement = document.getElementById(
 const divAlert: HTMLDivElement = document.getElementById(
   "div-alert"
 ) as HTMLDivElement;
+const createAlert: HTMLButtonElement = document.getElementById(
+  "create-alert"
+) as HTMLButtonElement;
 
 showAlerts.addEventListener("click", () => {
-    divAlert.classList.toggle('active');
+  divAlert.classList.toggle("active");
+});
+
+createAlert.addEventListener("click", () => {
+  divAlert.classList.add("active");
 });

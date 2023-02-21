@@ -43,6 +43,10 @@ function showValue() {
 }
 const showAlerts = document.getElementById("showAlerts");
 const divAlert = document.getElementById("div-alert");
+const createAlert = document.getElementById("create-alert");
 showAlerts.addEventListener("click", () => {
-    divAlert.classList.toggle('active');
+    divAlert.classList.toggle("active");
+});
+createAlert.addEventListener("click", () => {
+    divAlert.classList.add("active");
 });
