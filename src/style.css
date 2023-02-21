@@ -1,0 +1,113 @@
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(22, 26, 30);
+  font-family: "Roboto", sans-serif;
+}
+
+/* container */
+.container {
+  display: flex;
+  gap: 5px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* currency */
+#div-currency {
+  height: 400px;
+  width: 300px;
+  border: 1px solid rgba(234, 236, 239, 0.135);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+}
+
+#currency-value {
+  margin-top: 50px;
+}
+
+#select-coin {
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+option {
+  background-color: rgb(22, 26, 30);
+  border: none;
+}
+
+#below {
+    margin-top: 50px;
+}
+
+#below, #above {
+    width: 100%;
+    background-color: rgba(43, 47, 54, 0.9);
+    border: none;
+    height: 40px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+
+#create-alert {
+  height: 40px;
+  width: 100%;
+  background-color: rgba(43, 47, 54, 0.9);
+  border: none;
+  cursor: pointer;
+  color: rgb(240, 185, 11);
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+/* alert */
+#div-alert {
+  height: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  border: 1px solid rgba(234, 236, 239, 0.135);
+  border-radius: 10px;
+  transition: .3s;
+}
+
+#div-alert.active {
+  width: 200px;
+  display: flex;
+  align-items: initial;
+}
+
+#div-alert i {
+  color: rgb(240, 185, 11);
+  cursor: pointer;
+}
+
+#div-alert i:hover {
+    transform: rotateZ(20deg)
+}
