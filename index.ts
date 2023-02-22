@@ -6,7 +6,7 @@ const selectCoin: HTMLSelectElement = document.getElementById(
 ) as HTMLSelectElement;
 
 showValue();
-setInterval(showValue, 1000 * 5);
+setInterval(showValue, 1000 * 10);
 
 selectCoin.addEventListener("change", () => {
   showValue();
@@ -42,6 +42,12 @@ async function showValue() {
   if (selectCoin.value == "dogecoin") {
     currencyValue.innerText = `R$ ${parseFloat(dogecoin)}`;
   }
+
+  aboveArray.forEach((alt) => {
+    if (ethereum > alt) {
+      // alert('OKKK')
+    }
+  });
 }
 
 const showAlerts: HTMLDivElement = document.getElementById(
@@ -58,6 +64,55 @@ showAlerts.addEventListener("click", () => {
   divAlert.classList.toggle("active");
 });
 
+const alertSelect: HTMLSelectElement = document.getElementById(
+  "alert-select"
+) as HTMLSelectElement;
+const alertValue: HTMLInputElement = document.getElementById(
+  "alert-value"
+) as HTMLInputElement;
+const alertList: HTMLUListElement = document.getElementById(
+  "alert-list"
+) as HTMLUListElement;
+
 createAlert.addEventListener("click", () => {
-  divAlert.classList.add("active");
+  if (alertValue.value == "") {
+    alertValue.style.border = "1px solid rgb(240, 185, 11)";
+  } else if (alertSelect.value == "above") {
+    aboveArray.push(alertValue.value);
+    const alertAbove: HTMLLIElement = document.createElement(
+      "li"
+    ) as HTMLLIElement;
+    alertAbove.innerText = `R$ ${parseFloat(alertValue.value)} +`;
+    alertAbove.style.color = "rgb(14, 203, 129)";
+    alertList.appendChild(alertAbove);
+    divAlert.classList.add("active");
+    rereshHtmlState();
+    console.log(aboveArray);
+  } else if (alertSelect.value == "below") {
+    belowArray.push(alertValue.value);
+    const alertBelow: HTMLLIElement = document.createElement(
+      "li"
+    ) as HTMLLIElement;
+    alertBelow.innerText = `R$ ${parseFloat(alertValue.value)} -`;
+    alertBelow.style.color = "rgb(246, 70, 93)";
+    alertList.appendChild(alertBelow);
+    divAlert.classList.add("active");
+    rereshHtmlState();
+    console.log(belowArray);
+  }
 });
+
+type Alert = {
+  name: string;
+  value: number;
+};
+
+const aboveArray: Array<Alert> = [];
+const belowArray: Array<Alert> = [];
+
+function rereshHtmlState() {
+  alertValue.value = "";
+}
+
+console.log(aboveArray);
+console.log(belowArray);

@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const currencyValue = document.getElementById("currency-value");
 const selectCoin = document.getElementById("select-coin");
 showValue();
-setInterval(showValue, 1000 * 5);
+setInterval(showValue, 1000 * 10);
 selectCoin.addEventListener("change", () => {
     showValue();
 });
@@ -39,6 +39,11 @@ function showValue() {
         if (selectCoin.value == "dogecoin") {
             currencyValue.innerText = `R$ ${parseFloat(dogecoin)}`;
         }
+        aboveArray.forEach((alt) => {
+            if (ethereum > alt) {
+                // alert('OKKK')
+            }
+        });
     });
 }
 const showAlerts = document.getElementById("showAlerts");
@@ -47,6 +52,38 @@ const createAlert = document.getElementById("create-alert");
 showAlerts.addEventListener("click", () => {
     divAlert.classList.toggle("active");
 });
+const alertSelect = document.getElementById("alert-select");
+const alertValue = document.getElementById("alert-value");
+const alertList = document.getElementById("alert-list");
 createAlert.addEventListener("click", () => {
-    divAlert.classList.add("active");
+    if (alertValue.value == "") {
+        alertValue.style.border = "1px solid rgb(240, 185, 11)";
+    }
+    else if (alertSelect.value == "above") {
+        aboveArray.push(alertValue.value);
+        const alertAbove = document.createElement("li");
+        alertAbove.innerText = `R$ ${parseFloat(alertValue.value)} +`;
+        alertAbove.style.color = "rgb(14, 203, 129)";
+        alertList.appendChild(alertAbove);
+        divAlert.classList.add("active");
+        rereshHtmlState();
+        console.log(aboveArray);
+    }
+    else if (alertSelect.value == "below") {
+        belowArray.push(alertValue.value);
+        const alertBelow = document.createElement("li");
+        alertBelow.innerText = `R$ ${parseFloat(alertValue.value)} -`;
+        alertBelow.style.color = "rgb(246, 70, 93)";
+        alertList.appendChild(alertBelow);
+        divAlert.classList.add("active");
+        rereshHtmlState();
+        console.log(belowArray);
+    }
 });
+const aboveArray = [];
+const belowArray = [];
+function rereshHtmlState() {
+    alertValue.value = "";
+}
+console.log(aboveArray);
+console.log(belowArray);

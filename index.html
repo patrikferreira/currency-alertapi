@@ -27,8 +27,11 @@
           <option value="dogecoin">DOGE</option>
         </select>
 
-        <input type="number" id="below" placeholder="Valor Abaixo" />
-        <input type="number" id="above" placeholder="Valor Acima" />
+        <select name="" id="alert-select">
+            <option value="above">Preço ultrapassar</option>
+            <option value="below">Preço abaixo</option>
+        </select>
+        <input type="number" id="alert-value" placeholder="R$ 0" />
         <button id="create-alert">Adicionar Alerta</button>
       </div>
 
@@ -36,6 +39,9 @@
       <div id="div-alert">
         <div id="showAlerts">
           <i class="fa-sharp fa-solid fa-bell"></i>
+          <div id="alert-field">
+            <ul id="alert-list"></ul>
+          </div>
         </div>
       </div>
     </div>
