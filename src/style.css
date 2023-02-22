@@ -45,6 +45,20 @@ body {
   align-items: center;
 }
 
+#div-currency #header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#header #alert {
+  cursor: pointer;
+}
+
+#header #alert i {
+  color: var(--yellow-color);
+}
+
 #currency-value {
   margin-top: 50px;
 }
@@ -105,54 +119,4 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 5px;
 }
 
-/* alert */
-#div-alert {
-  height: 400px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 60px;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  transition: 0.3s;
-}
 
-#alert-field {
-  height: 300px;
-  margin-top: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-#alert-list {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    font-weight: lighter;
-    font-size: 16px;
-    width: 100%;
-}
-
-#alert-list li {
-    width: 100%;
-    height: 30px;
-    padding: 6px;
-    border: 1px solid var(--border-color);
-}
-
-#div-alert.active {
-  width: 200px;
-  display: flex;
-  align-items: initial;
-}
-
-#div-alert i {
-  color: var(--yellow-color);
-  cursor: pointer;
-}
-
-#div-alert i:hover {
-  transform: rotateZ(20deg);
-}
